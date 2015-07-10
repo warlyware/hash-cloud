@@ -1,0 +1,25 @@
+
+<h3 class="text-center">{{name | uppercase}}</h3>
+<div class="row text-center">
+  <div class="col-xs-6 col-xs-offset-3">
+    <form name="userForm" ng-submit="submit(user)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" ng-model="user.email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" ng-model="user.password" class="form-control">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success pull-left">Email</button>
+      </div>
+      <div class="form-group pull-right"><span>Or Login with:</span>
+        <button type="button" ng-click="oauth(&quot;twitter&quot;)" class="btn btn-info">Twitter</button>
+        <button type="button" ng-click="oauth(&quot;google&quot;)" class="btn btn-primary">Google</button>
+        <button type="button" ng-click="oauth(&quot;facebook&quot;)" class="btn btn-info">Facebook</button>
+        <button type="button" ng-click="oauth(&quot;github&quot;)" class="btn btn-default">GitHub</button>
+      </div>
+    </form>
+  </div>
+</div>
