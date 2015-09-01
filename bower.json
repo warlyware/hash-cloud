@@ -2,7 +2,7 @@
   "name": "sif",
   "version": "0.0.1",
   "authors": [
-    "Chris Oyler <christopher.oyler@gmail.com>"
+    "Dan Ward <danward@gmail.com>"
   ],
   "description": "Bower Dependencies for Sif",
   "keywords": [
@@ -22,8 +22,10 @@
   "dependencies": {
     "angular": "1.4.1",
     "angular-ui-router": "0.2.15",
-    "lodash": "3.10.0",
+    "angularfire": "~1.1.2",
+    "firebase": "~2.2.9",
     "jquery": "2.1.4",
+    "lodash": "3.10.0",
     "pleasejs": "~0.4.2"
   }
 }

@@ -1,8 +1,97 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+input {
+  margin-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
-a {
-  color: #00B7FF;
+.brand-logo {
+  margin-left: -5px !important;
 }
+
+.clearfix {
+  overflow: auto; }
+
+#tags .tag {
+  float: left;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 15px; }
+
+button {
+  background-color: #35a6ff !important; }
+
+button.tweet-button {
+  margin-top: 15px;
+}
+
+.btn-follow, .btn-following {
+  margin-right: 10px;
+}
+
+.btn-following.disabled {
+  background-color: #2DDE59 !important;
+  color: white !important;
+}
+
+.followers, .tweets, .friends {
+  margin-left: 15px;
+}
+
+input.checkbox {
+  position: initial !important;
+  left: 0px !important;
+  visibility: visible !important;
+}
+
+.user-img {
+  margin-left: 16px;
+  margin-top: 10px;
+}
+
+nav {
+  background-color: #35a6ff; }
+
+textarea {
+  border: 1px solid rgba(164, 164, 164, 0.38);
+  border-radius: 5px;
+  height: 100px;
+  width: 60%; }
+
+.brand-logo {
+  margin-left: 20px; }
+
+.clearfix {
+  overflow: auto; }
+
+#tags .tag {
+  float: left;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 15px; }
+
+/* label color */
+.input-field label {
+  color: #000; }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000; }
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000; }

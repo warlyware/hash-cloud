@@ -56,12 +56,12 @@ app.controller("HomeCtrl", function($scope, $http, twitterUser) {
 angular.module('sif')
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
-    
+
   $stateProvider
-  .state('home', {url: '/', templateUrl: '/views/home/home.html', controller: 'HomeCtrl'})
-  .state('user', {url: '', templateUrl: '/views/users/user.html', abstract: true})
-  .state('user.register', {url: '/register', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
-  .state('user.login', {url: '/login', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'});
+  .state('home', {url: '/', templateUrl: '/templates/home/home.html', controller: 'HomeCtrl'})
+  .state('user', {url: '', templateUrl: '/templates/users/user.html', abstract: true})
+  .state('user.register', {url: '/register', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'})
+  .state('user.login', {url: '/login', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'});
 });
 
 'use strict';
@@ -76,7 +76,7 @@ angular.module('sif')
 
 angular.module('sif')
 .run(function(FBService){
-  console.log('Sif Online');
+
 });
 
 'use strict';

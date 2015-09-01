@@ -10,10 +10,13 @@ function twitterClient(params) {
   return new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
-    access_token_key: params.access_token_key,
-    access_token_secret: params.access_token_secret
+    // access_token_key: params.access_token_key,
+    // access_token_secret: params.access_token_secret
+    access_token_key: process.env.ACCESS_KEY,
+    access_token_secret: process.env.ACCESS_SECRET
+
   });
-};
+}
 
 router.post('/tweet', function(req, res, next) {
   var client = twitterClient(req.body);
