@@ -19,6 +19,7 @@ input {
 
 .tag span {
   cursor: pointer;
+  font-size: 30%;
 }
 
 button {
