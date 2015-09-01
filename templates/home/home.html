@@ -15,7 +15,13 @@
   <div class="row">
     <div class="card-panel" ng-show="data.stats">
       <div id="tags" class="clearfix">
-        <div ng-repeat="(tag, size) in data.stats track by $index" style="font-size: {{size}}px; color: {{randColor[$index]}}" ng-model="tagBox" class="tag"><span ng-click="includeInTweet(tag)">{{tag}}</span></div>
+        <div ng-repeat="(tag, size) in data.stats track by $index"
+            style="font-size: {{size}}px; color: {{randColor[$index]}}"
+            ng-model="tagBox"
+            class="tag">
+            {{tag}}
+            <span ng-click="includeInTweet(tag)">add to tweet</span>
+        </div>
       </div>
     </div>
   </div><br>

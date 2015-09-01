@@ -17,6 +17,10 @@ input {
   font-weight: bold;
   margin-left: 15px; }
 
+.tag span {
+  cursor: pointer;
+}
+
 button {
   background-color: #35a6ff !important; }
 
