@@ -1,88 +1,29 @@
 'use strict';
 
-var app = angular.module('sif', ['firebase', 'ui.router']);
+angular.module('hashCloud', ['firebase', 'ui.router'])
+  .config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
 
-
-
-app.controller("HomeCtrl", function($scope, $http, twitterUser) {
-  $scope.tags = [], $scope.tweet = '', $scope.hashIsSearched = false;
-
-  var wordsArr = [];
-   $scope.search = function() {
-    twitterUser.search($scope.words)
-    .success(function(data) {
-      console.log(data);
-      $scope.data = data;
-      wordsArr = $scope.words.split(' ');
-      console.log(wordsArr.length);
-      $scope.randColor = Please.make_color({
-        colors_returned: wordsArr.length
-      });
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-
-    return false;
-  };
-
-  $scope.follow = function(screenName) {
-    twitterUser.follow(screenName)
-    .success(function(data) {
-      console.log(data);
-      $scope.data.users[screenName].following = true;
-    })
-    .catch(function(err) {
-      console.log(err)
-    })
-  }
-
-  $scope.sendTweet = function() {
-    twitterUser.sendTweet($scope.tweet)
-    .success(function(resp) {
-      $scope.tweet = "";
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  };
-
-  $scope.includeInTweet = function(tag) {
-    $scope.tweet = $scope.tweet + ' ' + tag;
-  }
-});
-'use strict';
-
-angular.module('sif')
-.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-  .state('home', {url: '/', templateUrl: '/templates/home/home.html', controller: 'HomeCtrl'})
-  .state('user', {url: '', templateUrl: '/templates/users/user.html', abstract: true})
-  .state('user.register', {url: '/register', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'})
-  .state('user.login', {url: '/login', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'});
-});
+    $stateProvider
+    .state('home', {url: '/', templateUrl: '/templates/home/home.html', controller: 'HomeCtrl'})
+    .state('user', {url: '', templateUrl: '/templates/users/user.html', abstract: true})
+    .state('user.register', {url: '/register', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'})
+    .state('user.login', {url: '/login', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'});
+  })
+  .constant('urls',{
+    'apiUrl': 'http://localhost:8001',
+    'firebaseUrl': 'https://ch-hash-cloud.firebaseio.com/'
+  });
 
 'use strict';
 
-angular.module('sif')
-.constant('urls',{
-  'apiUrl': 'http://localhost:8001',
-  'firebaseUrl': 'https://ch-hash-cloud.firebaseio.com/'
-});
+// angular.module('hashCloud')
+// .run(function(FBService){});
 
 'use strict';
 
-angular.module('sif')
-.run(function(FBService){
-
-});
-
-'use strict';
-
-angular.module('sif')
-.service('FBService', function($window, $firebaseAuth, urls){
+angular.module('hashCloud')
+.service('FBService', function($state, $firebaseAuth, urls, $rootScope, $window){
   var fb = this;
 
   this.db = new Firebase(urls.firebaseUrl);
@@ -91,15 +32,20 @@ angular.module('sif')
     if (authData) {
       fb.currentUser = authData.twitter;
       console.log("Logged in: ", authData);
+      setTimeout(function() {
+        $rootScope.currentUser = authData.twitter;
+        $rootScope.$apply()
+      }, 500);
     }
   });
 
   this.twitterLogout = function() {
     fb.db.unauth();
+    // $state.reload();
   };
 
   this.twitterLogin = function() {
-    fb.db.authWithOAuthRedirect("twitter", function(error) {
+    fb.db.authWithOAuthPopup("twitter", function(error) {
       if (error) {
         console.log("Login Failed!", error);
       }
@@ -110,21 +56,14 @@ angular.module('sif')
 
 'use strict';
 
-angular.module('sif')
-.factory('User', function(){
-
-
-  return;
-});
-
-angular.module('sif')
+angular.module('hashCloud')
 .service('twitterUser', function(urls, $http, FBService) {
 
   var withTokens = function(obj) {
     obj.access_token_key = FBService.currentUser.accessToken;
     obj.access_token_secret = FBService.currentUser.accessTokenSecret;
     return obj;
-  }
+  };
 
   this.search = function(words) {
     var data = withTokens({ words: words });
@@ -139,24 +78,44 @@ angular.module('sif')
   this.follow = function(screenName) {
     var data = withTokens({screen_name: screenName});
     return $http.post(urls.apiUrl + '/follow', data);
-  }
+  };
 
 });
 
 'use strict';
 
-angular.module('sif')
-.controller('NavCtrl', function($scope, FBService){
+angular.module('hashCloud')
+.controller('NavCtrl', function($state, $scope, FBService, urls){
 
-  $scope.login = FBService.twitterLogin;
-  $scope.logout = FBService.twitterLogout;
+
+
+  var db = new Firebase(urls.firebaseUrl);
+
+  db.onAuth(function(authData) {
+    if (authData) {
+      $scope.currentUser = authData.twitter;
+      console.log("Logged in: ", authData);
+    }
+  });
+
+  $scope.login = function() {
+    FBService.twitterLogin();
+  };
+
+
+  $scope.logout = function() {
+
+      db.unauth();
+      $scope.currentUser = null;
+      // $state.reload();
+  };
   $scope.currentUser = FBService.currentUser;
 
 });
 
 'use strict';
 
-angular.module('sif')
+angular.module('hashCloud')
 .controller('UsersCtrl', function($scope, $state){
 
 });

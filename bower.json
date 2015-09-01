@@ -1,17 +1,17 @@
 {
-  "name": "sif",
+  "name": "hashCloud",
   "version": "0.0.1",
   "authors": [
     "Dan Ward <danward@gmail.com>"
   ],
-  "description": "Bower Dependencies for Sif",
+  "description": "Bower Dependencies for hashCloud",
   "keywords": [
     "Angular",
     "Jade",
     "SASS"
   ],
   "license": "MIT",
-  "homepage": "github.com/IAmEddieDean/Sif",
+  "homepage": "github.com/warlyware/",
   "ignore": [
     "**/.*",
     "node_modules",

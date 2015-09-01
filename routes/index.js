@@ -7,11 +7,14 @@ router.get('/', function(req, res, next) {
 });
 
 function twitterClient(params) {
+  console.log('`````````params', params);
+  console.log('process.env.CONSUMER_KEY', process.env.CONSUMER_KEY);
+  console.log('process.env.SECRET', process.env.CONSUMER_SECRET);
   return new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
-    // access_token_key: params.access_token_key,
-    // access_token_secret: params.access_token_secret
+    // access_token_key: "3248180491-VqOfZVImZZTuc56Jh8CTB9G3SMHdgO9VlrRdif5",
+    // access_token_secret: "w7UgWEabp0TE5x75AYhVbFF6oQyaXrQTcaIn00QtkIlUb"
     access_token_key: process.env.ACCESS_KEY,
     access_token_secret: process.env.ACCESS_SECRET
 
@@ -32,6 +35,7 @@ router.post('/tweet', function(req, res, next) {
 });
 
 router.post('/search', function(req, res, next) {
+  console.log(req.body);
   var client = twitterClient(req.body);
   var words = req.body.words.toLowerCase().split(" ");
 
