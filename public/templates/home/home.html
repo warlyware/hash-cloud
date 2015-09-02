@@ -1,0 +1,93 @@
+<div class="col s12 text-center landingpage" ng-show="!currentUser">
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="/images/clouds.jpg"></div>
+    <div class="center white-text">
+      <br>
+      <h2>ever wondered how </h2>
+      <h2>certain twitter hashtags</h2>
+      <h2>compare with eachother?</h2>
+      <br>
+      <h4>is #tennis more popular than #jesus?</h4>
+      <h4>what about #bacon vs. #trump?</h4>
+    </div>
+  </div>
+  <div class="center container">
+    <div class="row">
+      <br><br>
+      <h2>#cloud knows!</h2>
+      <h5>create word clouds from twitter hashtags</h5>
+      <br><br><br>
+      <div class="col s12 m4">
+        <i class="material-icons large">search</i>
+        <p>a simple webapp that allows you to easily search multiple hashtags for their current popularity on twitter.</p>
+      </div>
+      <div class="col s12 m4">
+        <i class="material-icons large">person_pin</i>
+        <p>
+          each search returns a wordcloud of your hashtags, as well as all the users who recently tweeted the tags you searched,
+          allowing you to find new users to follow based on their tweets.
+        </p>
+      </div>
+      <div class="col s12 m4">
+        <i class="material-icons large">thumb_up</i>
+        <p>find a cloud thats interesting, funny, or surprising?  use #cloud to tweet out your discoveries!</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+
+  <div class="col s12 text-center" ng-show="currentUser">
+    <form ng-submit="search()">
+      <div class="row center">
+        <div class="col s6 offset-s3">
+          <div class="input-field">
+            <input id="hash_search" type="text" ng-model="words">
+            <label for="hash_search">Search Hashtags</label>
+          </div>
+        </div>
+      </div>
+      <div class="row center">
+        <button type="submit" class="waves-effect waves-light btn">Search</button>
+      </div>
+    </form>
+    <div class="row" ng-show="data.stats">
+      <div class="col s12 l8">
+        <h5 class="center">your cloud</h5>
+        <div class="card-panel tooltipped z-depth-2" data-position="bottom" data-delay="50" data-tooltip="click to add">
+          <div id="tags" class="clearfix">
+            <div ng-repeat="(tag, size) in data.stats track by $index"
+                style="font-size: {{size*1.6}}px; color: {{randColor[$index]}}"
+                ng-model="tagBox"
+                class="tag">
+                <span ng-click="includeInTweet(tag)">{{tag}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 l4 center">
+        <h5>tweet your discovery</h5>
+        <textarea ng-model="tweet" rows="10" class="z-depth-2"></textarea><br>
+        <button ng-click="sendTweet()" class="waves-effect waves-light btn tweet-button">tweet</button>
+      </div>
+    </div><br><br>
+
+    <div id="tweeters">
+      <h5 class="center" ng-show="data.users">users who recently tweeted your searched tags</h5>
+      <div ng-repeat="(screenName, userData) in data.users" class="card">
+        <div class="left"><a target="_blank" href="http://twitter.com/{{userData.screen_name}}"><img ng-src="{{userData.profile_image_url}}" class="circle user-img"/></a></div>
+        <h4 class="card-title">{{userData.name}}</h4>
+          <button class="waves-effect waves-light btn right btn-follow" ng-hide="userData.following" ng-click="follow(screenName)">Follow</button>
+          <button class="btn btn-info btn right disabled btn-following" ng-show="userData.following">Following</button>
+          <div class="card-content">
+            <span class="username"><strong>@{{userData.screen_name}}</strong></span><span class="friends">{{userData.friends_count}} Friends</span><span class="followers">{{userData.followers_count}} Followers</span><span class="tweets">{{userData.statuses_count}} Tweets</span>
+          <div class="description">{{userData.description}}</div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

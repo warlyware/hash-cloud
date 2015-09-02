@@ -1,7 +1,34 @@
+body {
+  background-color: rgba(58, 96, 103, 0.09);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h5 {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  color: #464545;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 input {
   margin-top: 20px;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+.page-footer {
+  background-color: #079AB3 !important;
+}
+
+.landingpage p {
+  font-size: 1.5em;
 }
 
 .brand-logo {
@@ -15,15 +42,13 @@ input {
   float: left;
   display: inline-block;
   font-weight: bold;
-  margin-left: 15px; }
-
-.tag span {
+  margin-left: 15px;
   cursor: pointer;
-  font-size: 30%;
 }
 
 button {
-  background-color: #35a6ff !important; }
+  background-color: #079AB3 !important;
+}
 
 button.tweet-button {
   margin-top: 15px;
@@ -53,14 +78,49 @@ input.checkbox {
   margin-top: 10px;
 }
 
+.sky-blue {
+  background-color: #079AB3;
+}
+
+.card-panel {
+  padding: 0 !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+/*
+.mid-card {
+  margin-left: 10px !important;
+}*/
+
 nav {
-  background-color: #35a6ff; }
+  background-color: #079AB3;
+}
+
+#nav-username {
+  cursor: default !important;
+  margin-right: 20px;
+}
+
+#nav-username:hover {
+  background-color: #079AB3 !important;
+}
+
+#nav-username:after {
+  background-color: #079AB3 !important;
+}
+
+.material-icons {
+  color: #079AB3;
+}
 
 textarea {
   border: 1px solid rgba(164, 164, 164, 0.38);
+  background-color: white;
   border-radius: 5px;
-  height: 100px;
-  width: 60%; }
+  height: 150px;
+  width: 80%;
+}
 
 .brand-logo {
   margin-left: 20px; }

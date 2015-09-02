@@ -3,12 +3,25 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
 
   var wordsArr = [];
    $scope.search = function() {
-    twitterUser.search($scope.words)
+    var wordsToCheckForHash = [];
+    var wordsWithHashes = [];
+    var wordsToSearch = '';
+    wordsToCheckForHash = $scope.words.split(' ');
+    wordsToCheckForHash.forEach(function(e) {
+      if (e.substring(0, 1) !== '#') {
+        e = '#' + e;
+        wordsWithHashes.push(e);
+      } else {
+        wordsWithHashes.push(e);
+      }
+    });
+    wordsToSearch = wordsWithHashes.join(' ');
+
+
+    twitterUser.search(wordsToSearch)
     .success(function(data) {
-      console.log(data);
       $scope.data = data;
       wordsArr = $scope.words.split(' ');
-      console.log(wordsArr.length);
       $scope.randColor = Please.make_color({
         colors_returned: wordsArr.length
       });
@@ -23,13 +36,12 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
   $scope.follow = function(screenName) {
     twitterUser.follow(screenName)
     .success(function(data) {
-      console.log(data);
       $scope.data.users[screenName].following = true;
     })
     .catch(function(err) {
-      console.log(err)
-    })
-  }
+      console.log(err);
+    });
+  };
 
   $scope.sendTweet = function() {
     twitterUser.sendTweet($scope.tweet)
@@ -43,6 +55,12 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
 
   $scope.includeInTweet = function(tag) {
     $scope.tweet = $scope.tweet + ' ' + tag;
-  }
+  };
+
+  $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+    $('.parallax').parallax();
+
+  });
 
 });

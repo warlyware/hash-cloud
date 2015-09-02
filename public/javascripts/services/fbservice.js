@@ -9,7 +9,6 @@ angular.module('hashCloud')
   this.db.onAuth(function(authData) {
     if (authData) {
       fb.currentUser = authData.twitter;
-      console.log("Logged in: ", authData);
       setTimeout(function() {
         $rootScope.currentUser = authData.twitter;
         $rootScope.$apply()
