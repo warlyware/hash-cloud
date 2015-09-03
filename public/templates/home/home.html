@@ -3,19 +3,27 @@
   <div class="parallax-container">
     <div class="parallax"><img src="/images/clouds.jpg"></div>
     <div class="center white-text">
-      <br><br><br><br>
-      <span class="landing-typed"></span>
+      <br>
+      <br>
+      <br class="hide-on-small-only">
+      <br class="hide-on-small-only">
+      <span class="landing-typed-small smaller hide-on-med-and-up"></span>
+      <span class="typed-cursor smaller hide-on-med-and-up">|</span>
+      <span class="landing-typed hide-on-small-only"></span>
+      <span class="typed-cursor hide-on-small-only">|</span>
       <br><br><br>
-      <h4>ever wondered how twitter</h4>
-      <h4>hashtags compare with eachother?</h4>
+      <h4 class="hide-on-small-only">ever wondered how twitter</h4>
+      <h4 class="hide-on-small-only">hashtags compare with eachother?</h4>
+      <h4 class="hide-on-med-and-up smaller">ever wondered how twitter</h4>
+      <h4 class="hide-on-med-and-up smaller">hashtags compare with eachother?</h4>
     </div>
   </div>
   <div class="center container">
     <div class="row">
-      <br><br>
+      <br><br><br>
       <h2 class="landing-title">#cloud knows!</h2>
       <h5>create word clouds from twitter hashtags</h5>
-      <br><br><br>
+      <br><br>
       <div class="col s12 m4">
         <i class="material-icons large">search</i>
         <p>a simple webapp that allows you to easily search multiple hashtags for their current popularity on twitter.</p>
@@ -59,10 +67,10 @@
     <div class="row" ng-show="data.stats">
       <div class="col s12">
         <h5 class="center">your cloud</h5>
-        <div class="card-panel tooltipped z-depth-2" data-position="bottom" data-delay="50" data-tooltip="click to add">
+        <div class="card-panel tooltipped z-depth-2 hashcloud" data-position="bottom" data-delay="50" data-tooltip="click to add">
           <div id="tags" class="clearfix">
             <div ng-repeat="(tag, size) in data.stats track by $index"
-                style="font-size: {{size*1.4}}px; color: {{randColor[$index]}}"
+                style="font-size: {{size*1.6}}px; color: {{randColor[$index]}}"
                 ng-model="tagBox"
                 class="tag">
                 <span ng-click="includeInTweet(tag)">{{tag}}</span>
