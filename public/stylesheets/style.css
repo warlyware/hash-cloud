@@ -5,11 +5,18 @@ body {
   flex-direction: column;
 }
 
-h5 {
+h4, h5 {
   font-weight: lighter;
   font-style: italic;
-  font-size: 1.5em;
   letter-spacing: 0.1em;
+}
+
+h4 {
+  font-size: 3.2rem;
+}
+
+h5 {
+  font-size: 1.5em;
   color: #464545;
 }
 
@@ -29,6 +36,15 @@ input {
 
 .landingpage p {
   font-size: 1.5em;
+}
+
+.landing-typed {
+  font-size: 5em;
+  color: #006777;
+}
+
+.landing-title {
+  color: #006777;
 }
 
 .brand-logo {
@@ -165,3 +181,27 @@ textarea {
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #000; }
+
+.typed-cursor{
+  color: #006777;
+  font-size: 5.3em;
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}

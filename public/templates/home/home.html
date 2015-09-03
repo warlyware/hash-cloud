@@ -3,19 +3,17 @@
   <div class="parallax-container">
     <div class="parallax"><img src="/images/clouds.jpg"></div>
     <div class="center white-text">
-      <br>
-      <h2>ever wondered how </h2>
-      <h2>certain twitter hashtags</h2>
-      <h2>compare with eachother?</h2>
-      <br>
-      <h4>is #tennis more popular than #jesus?</h4>
-      <h4>what about #bacon vs. #trump?</h4>
+      <br><br><br><br>
+      <span class="landing-typed"></span>
+      <br><br><br>
+      <h4>ever wondered how twitter</h4>
+      <h4>hashtags compare with eachother?</h4>
     </div>
   </div>
   <div class="center container">
     <div class="row">
       <br><br>
-      <h2>#cloud knows!</h2>
+      <h2 class="landing-title">#cloud knows!</h2>
       <h5>create word clouds from twitter hashtags</h5>
       <br><br><br>
       <div class="col s12 m4">
@@ -81,7 +79,7 @@
       <h5 class="center" ng-show="data.users">users who recently tweeted your searched tags</h5>
       <div ng-repeat="(screenName, userData) in data.users" class="card">
         <div class="left"><a target="_blank" href="http://twitter.com/{{userData.screen_name}}"><img ng-src="{{userData.profile_image_url}}" class="circle user-img"/></a></div>
-        <h4 class="card-title">{{userData.name}}</h4>
+        <h3 class="card-title">{{userData.name}}</h3>
           <button class="waves-effect waves-light btn right btn-follow" ng-hide="userData.following" ng-click="follow(screenName)">Follow</button>
           <button class="btn btn-info btn right disabled btn-following" ng-show="userData.following">Following</button>
           <div class="card-content">

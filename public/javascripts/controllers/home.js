@@ -61,7 +61,20 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
   $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
     $('.parallax').parallax();
-
+    $(".landing-typed").typed({
+        strings: [
+          '#bacon vs. #trump?',
+          '#satan vs. #jesus?',
+          '#tennis vs. #football?',
+          '#breakfast vs. #lunch vs. #dinner?',
+          '#good vs. #evil?',
+          '#tea vs. #coffee?',
+          '#asdf vs. #brb vs. #lol?'
+        ],
+        typeSpeed: 100,
+        backDelay: 1000,
+        loop: true
+    });
   });
 
 });
