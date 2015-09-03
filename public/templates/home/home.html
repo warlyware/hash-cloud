@@ -43,14 +43,17 @@
     <form ng-submit="search()">
       <div class="row center">
         <div class="col s6 offset-s3">
-          <div class="input-field">
+          <div class="input-field" cg-busy="{promise:searchPromise,message:'searching...'}">
             <input id="hash_search" type="text" ng-model="words">
             <label for="hash_search">Search Hashtags</label>
           </div>
         </div>
       </div>
       <div class="row center">
-        <button type="submit" class="waves-effect waves-light btn">Search</button>
+        <button type="submit" class="waves-effect waves-light btn"
+                >
+          Search
+        </button>
       </div>
     </form>
     <div class="row" ng-show="data.stats">

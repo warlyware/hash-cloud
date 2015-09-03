@@ -17,8 +17,7 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
     });
     wordsToSearch = wordsWithHashes.join(' ');
 
-
-    twitterUser.search(wordsToSearch)
+    $scope.searchPromise = twitterUser.search(wordsToSearch)
     .success(function(data) {
       $scope.data = data;
       console.log(data);

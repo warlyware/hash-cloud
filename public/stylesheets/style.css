@@ -3,6 +3,16 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Raleway';
+}
+
+p {
+  font-family: 'Raleway';
+  font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Italiana';
 }
 
 h4, h5 {
@@ -12,6 +22,7 @@ h4, h5 {
 }
 
 h4 {
+  color: #5A7073;
   font-size: 3.2rem;
 }
 
@@ -28,6 +39,7 @@ input {
   margin-top: 20px;
   margin-top: 20px;
   margin-bottom: 5px;
+  font-size: 2rem;
 }
 
 .page-footer {
@@ -36,11 +48,14 @@ input {
 
 .landingpage p {
   font-size: 1.5em;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .landing-typed {
   font-size: 5em;
   color: #006777;
+  font-family: 'Raleway';
 }
 
 .landing-title {
@@ -104,6 +119,10 @@ input.checkbox {
   margin-right: 5px !important;
 }
 
+.card-content {
+  font-size: 1.2em;
+}
+
 .user-tweet {
   font-size: 1.4em;
   font-style: italic;
@@ -111,7 +130,7 @@ input.checkbox {
 
 .description {
   color: #4c4c4c;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 nav {
@@ -141,6 +160,7 @@ textarea {
   border-radius: 5px;
   height: 150px;
   width: 80%;
+  font-size: 2rem;
 }
 
 .brand-logo {
