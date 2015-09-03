@@ -22,8 +22,8 @@ angular.module('hashCloud')
 
       db.unauth();
       $rootScope.currentUser = null;
-      // $state.reload();
+      $state.reload();
   };
-  $rootScope.currentUser = FBService.currentUser;
+  // $rootScope.currentUser = FBService.currentUser;
 
 });

@@ -56,12 +56,12 @@
       </div>
     </form>
     <div class="row" ng-show="data.stats">
-      <div class="col s12 l8">
+      <div class="col s12">
         <h5 class="center">your cloud</h5>
         <div class="card-panel tooltipped z-depth-2" data-position="bottom" data-delay="50" data-tooltip="click to add">
           <div id="tags" class="clearfix">
             <div ng-repeat="(tag, size) in data.stats track by $index"
-                style="font-size: {{size*1.6}}px; color: {{randColor[$index]}}"
+                style="font-size: {{size*1.4}}px; color: {{randColor[$index]}}"
                 ng-model="tagBox"
                 class="tag">
                 <span ng-click="includeInTweet(tag)">{{tag}}</span>
@@ -69,7 +69,8 @@
           </div>
         </div>
       </div>
-      <div class="col s12 l4 center">
+      <div class="col s12 m6 offset-m3  center">
+        <br>
         <h5>tweet your discovery</h5>
         <textarea ng-model="tweet" rows="10" class="z-depth-2"></textarea><br>
         <button ng-click="sendTweet()" class="waves-effect waves-light btn tweet-button">tweet</button>
@@ -85,7 +86,9 @@
           <button class="btn btn-info btn right disabled btn-following" ng-show="userData.following">Following</button>
           <div class="card-content">
             <span class="username"><strong>@{{userData.screen_name}}</strong></span><span class="friends">{{userData.friends_count}} Friends</span><span class="followers">{{userData.followers_count}} Followers</span><span class="tweets">{{userData.statuses_count}} Tweets</span>
-          <div class="description">{{userData.description}}</div>
+            <div class="description">{{userData.description}}</div>
+            <br>
+            <div class="user-tweet">{{userData.tweet}}</div>
           </div>
       </div>
     </div>

@@ -88,10 +88,15 @@ input.checkbox {
   margin-right: 5px !important;
 }
 
-/*
-.mid-card {
-  margin-left: 10px !important;
-}*/
+.user-tweet {
+  font-size: 1.4em;
+  font-style: italic;
+}
+
+.description {
+  color: #4c4c4c;
+  letter-spacing: 0.05em;
+}
 
 nav {
   background-color: #079AB3;

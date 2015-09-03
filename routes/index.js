@@ -51,6 +51,7 @@ router.post('/search', function(req, res, next) {
           stats[word] = stats[word] || 0;
           stats[word]++;
           users[tweet.user.screen_name] = tweet.user;
+          users[tweet.user.screen_name].tweet = tweet.text;
         }
       });
     });

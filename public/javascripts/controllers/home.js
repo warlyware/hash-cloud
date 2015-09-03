@@ -21,6 +21,7 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
     twitterUser.search(wordsToSearch)
     .success(function(data) {
       $scope.data = data;
+      console.log(data);
       wordsArr = $scope.words.split(' ');
       $scope.randColor = Please.make_color({
         colors_returned: wordsArr.length
