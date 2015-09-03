@@ -79,11 +79,12 @@ angular.module('hashCloud').controller("HomeCtrl", function($scope, $http, twitt
         strings: [
           '#bacon vs. #trump?',
           '#satan vs. #jesus?',
-          '#tennis vs. #football?',
           '#breakfast vs. #lunch vs. #dinner?',
+          '#tennis vs. #football?',
           '#good vs. #evil?',
           '#tea vs. #coffee?',
-          '#asdf vs. #brb vs. #lol?'
+          '#funk vs. #rock vs. #funkrock?',
+          '#hot vs. #cold?'
         ],
         typeSpeed: 100,
         backDelay: 1000,
