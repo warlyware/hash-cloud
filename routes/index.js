@@ -11,8 +11,8 @@ function twitterClient(params) {
   return new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
-    access_token_key: params.ACCESS_KEY,
-    access_token_secret: params.ACCESS_SECRET
+    access_token_key: params.access_token_key,
+    access_token_secret: params.access_token_secret
   });
 
 }
@@ -31,8 +31,8 @@ router.post('/tweet', function(req, res, next) {
 });
 
 router.post('/search', function(req, res, next) {
-  console.log(req.body);
   var client = twitterClient(req.body);
+  console.log(client);
   var words = req.body.words.toLowerCase().split(" ");
 
   client.get('search/tweets', { q: words.join(" OR "), count: 100 }, function(error, tweets, response){
@@ -63,7 +63,7 @@ router.post('/search', function(req, res, next) {
 
 router.post('/follow', function(req, res, next) {
   var client = twitterClient(req.body);
-
+  console.log(client);
   client.post('friendships/create', { screen_name: req.body.screen_name }, function(err, user, response) {
     if (err) {
       console.error(err);

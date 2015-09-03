@@ -11,6 +11,7 @@ angular.module('hashCloud', ['firebase', 'ui.router'])
     // .state('user.login', {url: '/login', templateUrl: '/templates/users/users.html', controller: 'UsersCtrl'});
   })
   .constant('urls',{
-    'apiUrl': '//hash-cloud.herokuapp.com',
+    'apiUrl': '//localhost:8001',
+    // 'apiUrl': '//hash-cloud.herokuapp.com',
     'firebaseUrl': '//ch-hash-cloud.firebaseio.com/'
   });

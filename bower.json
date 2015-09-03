@@ -26,6 +26,7 @@
     "firebase": "~2.2.9",
     "jquery": "2.1.4",
     "lodash": "3.10.0",
-    "pleasejs": "~0.4.2"
+    "pleasejs": "~0.4.2",
+    "typed.js": "*"
   }
 }
